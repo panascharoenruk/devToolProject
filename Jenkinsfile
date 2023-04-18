@@ -5,7 +5,7 @@ pipeline {
     environment {
         DOCKER_CONTAINER_NAME = "devtoolproject-container"
         DOCKER_IMAGE_NAME     = "devtoolproject-image"
-        PORT                  = "8089"
+        PORT                  = "8090"
     }
 
     stages {
