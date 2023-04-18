@@ -3,9 +3,9 @@ pipeline {
 
     
     environment {
-        DOCKER_CONTAINER_NAME = "devtoolproject-container"
-        DOCKER_IMAGE_NAME     = "devtoolproject-image"
-        PORT                  = "8090"
+        DOCKER_CONTAINER_NAME = "devToolProject-container"
+        DOCKER_IMAGE_NAME     = "devToolProject-image"
+        PORT                  = "8089"
     }
 
     stages {

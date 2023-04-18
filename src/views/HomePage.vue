@@ -1,9 +1,9 @@
 <template>
 <div class="body-background">
-  <Carousel v-bind="settings" :autoplay="2000" :breakpoints="breakpoints" style="width: 100%; height: 40%;">
-    <Slide v-for="(image, index) in images" :key="image.id" >
-      <img :src="image.url" style="width: 100%; height: 100%;" />
-      <button v-if="slidesCount > 1" @click="deleteImage(index)">x</button>
+  <Carousel v-bind="settings" :autoplay="2000" :breakpoints="breakpoints">
+    <Slide v-for="(image) in images" :key="image.id"  style="width: 100%; height: 40%;">
+      <img :src="image.url" class="image" style="width: 100%; height: 50%;" />
+
     </Slide>
 
     <template #addons>
@@ -11,22 +11,25 @@
       <Navigation />
     </template>
   </Carousel>
-  <div class="columns">
-  <div class="column is-6">
+  <div class="columns" style="background-color: #1134A6">
+  <div class="column is-6 container">
     <img
       @click="viewWorker()"
-      src="https://image.makewebeasy.net/makeweb/m_1920x0/dG69lfG9T/modern/Nok_1_Photo_PS.jpg"
-      style="width: 100%"
+      src="https://th-media.apjonlinecdn.com/magefan_blog/best-laptops-construction-civil-engineering1605825954630952_1.jpg"
+      style="width: 100%; height: 100%;"
       alt=""
     />
+    <div class="centered">ดูสายอาชีพที่มาลงทะเบียนทั้งหมด</div>
   </div>
-  <div class="column is-6"> 
+  <div class="column is-6 container"> 
+    <div class="centered">ดูโฉนดและแปลนบ้านทั้งหมด</div>
     <img
     @click="viewLand()"
       src="https://image.makewebeasy.net/makeweb/m_1920x0/dG69lfG9T/modern/Nok_1_Photo_PS.jpg"
-      style="width: 100%"
+      style="width: 100%; height: 100%;"
       alt=""
     />
+    
   </div>
   </div>
 </div>
@@ -89,5 +92,46 @@ export default defineComponent({
   background-attachment: fixed;  
   background-size: cover;
   
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+    text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;  
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.container:hover .image {
+  opacity: 0.3;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.container:hover .middle {
+  opacity: 1;
 }
 </style>
