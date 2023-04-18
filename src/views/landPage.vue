@@ -8,7 +8,7 @@
               <router-link
                 :class="{ 'is-active': activeTab === 'workers' }"
                 @click="setActiveTab('workers')"
-                to="/"
+                to="/worker"
                 >Worker</router-link
               >
             </li>
@@ -32,7 +32,7 @@
                 v-show="activeTab === 'lands'"
                 style="background-color: #f6f6f6"
               >
-                <h1 class="title">ที่ดิน</h1>
+                <h1 class="title">ที่ดิน+แปลน</h1>
 
                 <div class="Land-card" v-for="(d, index) in lands" :key="index">
                   <div class="columns">
@@ -78,28 +78,6 @@ export default defineComponent({
     const route = useRoute();
 
     const lands = reactive<Land[]>([]);
-    const removeLand = (index: number) => {
-      Swal.fire({
-        title: "ปฏิเสธผู้สมัครหมายเลข ",
-        text: "คุณแน่ใจแล้วใช่ไหมที่จะปฏิเสธผู้สมัครรายนี้",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "hsl(141, 50%, 48%)",
-        cancelButtonColor: "hsl(348, 100%, 61%)",
-        confirmButtonText: "Yes",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          lands.splice(index - 1, 1);
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "ทำการลบผู้สมัครเรียบร้อย",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-    };
 
     onMounted(() => {
       let get_lands: Land[] = [
@@ -140,7 +118,6 @@ export default defineComponent({
       route,
       lands,
       viewLand,
-      removeLand,
       activeTab: "lands",
     };
   },

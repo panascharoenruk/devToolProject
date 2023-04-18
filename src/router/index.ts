@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomePage from '@/views/HomePage.vue';
 import LandPage from '@/views/landPage.vue';
-
+import WorkerPage from '@/views/WorkerPage.vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -10,6 +10,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/land',
     component: LandPage
+  },
+  {
+    path: '/worker',
+    component: WorkerPage
   },
 
 
