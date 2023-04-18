@@ -1,7 +1,8 @@
 <template>
-  <Carousel v-bind="settings" :autoplay="2000" :breakpoints="breakpoints">
-    <Slide v-for="(image, index) in images" :key="image.id">
-      <img :src="image.url" />
+<div class="body-background">
+  <Carousel v-bind="settings" :autoplay="2000" :breakpoints="breakpoints" style="width: 100%; height: 40%;">
+    <Slide v-for="(image, index) in images" :key="image.id" >
+      <img :src="image.url" style="width: 100%; height: 100%;" />
       <button v-if="slidesCount > 1" @click="deleteImage(index)">x</button>
     </Slide>
 
@@ -10,23 +11,25 @@
       <Navigation />
     </template>
   </Carousel>
-  <div class="column is-12">
-    <p>ดูรายชื่อสายงานต่างๆ:</p>
+  <div class="columns">
+  <div class="column is-6">
     <img
       @click="viewWorker()"
-      src="https://farm3.staticflickr.com/2854/34008105246_73e2c6081f_o_d.jpg"
+      src="https://image.makewebeasy.net/makeweb/m_1920x0/dG69lfG9T/modern/Nok_1_Photo_PS.jpg"
       style="width: 100%"
       alt=""
     />
   </div>
-  <div class="column is-12">
+  <div class="column is-6"> 
     <img
     @click="viewLand()"
-      src="https://shopee.co.th/blog/wp-content/uploads/2021/10/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%97%E0%B8%B5%E0%B9%88-2-1.jpg"
+      src="https://image.makewebeasy.net/makeweb/m_1920x0/dG69lfG9T/modern/Nok_1_Photo_PS.jpg"
       style="width: 100%"
       alt=""
     />
   </div>
+  </div>
+</div>
 </template>
 
 <script>
@@ -79,3 +82,12 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.body-background{
+  background-image: url('https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXJjaGl0ZWN0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  
+}
+</style>
